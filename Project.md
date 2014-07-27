@@ -74,6 +74,29 @@ prediction<-(predict(modFit, TestSet))
 class(prediction)
 prediction
 ```
+Estimate of Out of Sample Error was based on 1 - kappa (.9527) for .0473
+```{r eval=FALSE}
+Confusion Matrix and Statistics
+
+          Reference
+Prediction    A    B    C    D    E
+         A 1659    9    4    2    0
+         B   53 1057   26    3    0
+         C    1   21  996    8    0
+         D   13    6   36  907    2
+         E    4    5   16   11 1046
+
+Overall Statistics
+                                          
+               Accuracy : 0.9626          
+                 95% CI : (0.9575, 0.9673)
+    No Information Rate : 0.294           
+    P-Value [Acc > NIR] : < 2.2e-16       
+                                          
+                  Kappa : 0.9527          
+ Mcnemar's Test P-Value : 2.493e-15       
+
+```
 The Coursera provide function to write predicions (A,B,C,D or E) to 
 individual text files
 ```{r eval=FALSE}
@@ -84,3 +107,5 @@ pml_write_files = function(x){
                 write.table(x[i],file=filename,quote=FALSE,row.names=FALSE,col.names=FALSE)
         }
 ```
+## Conclusion
+The Random Forest algorithm did provided a highly accurate model. The model built achieved 100% accuracy against the 20 test cases supplied for this project. Even though 52 features were used in this project it is very probable that a smaller subset of features could have been as accurate. 
